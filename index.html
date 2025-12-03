@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="hu">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="description" content="Full Stack Fejlesztő portfólió bemutatva webfejlesztési projekteket és szakértelmet">
+    <meta name="keywords" content="Full Stack Fejlesztő, Webfejlesztő, Portfólió, JavaScript, React, Node.js">
+    <meta name="author" content="Kovács Eduard">
+    <meta property="og:title" content="Full Stack Fejlesztő Portfólió">
+    <meta property="og:description" content="Fedezd fel webfejlesztési projektjeimet és szakmai tapasztalatomat">
+    <meta property="og:type" content="website">
+    <title>Full Stack Fejlesztő Portfólió</title>
     <link rel="stylesheet" href="style.css">
-    <title>Potrfolio | Kovacs Eduard</title>
 </head>
-
 <body>
-
-    <header>
-        <div id="particles"></div>
-        <div class="info-text">
-            <h1>Kovács Eduárd</h1>
-            <h3>Web Fejlesztő</h3>
-            <a href="#about" class="scroll"><i class='bx bxs-down-arrow'></i></a>
-        </div>
-    </header>
-
-    <section id="about">
-        <div class="header">
-            <h1>Rólam</h1>
-            <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/edit?utm_content=DAGH0oXyWxY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Önéletrajz</a>
-        </div>
-
-        <div class="card">
-            <img src="images/profil.jpg" alt="profil">
-            <div class="info">
-                <h1>Kovács Eduárd</h1>
-                <p>
-                    A tesztelés valamennyi szintjén, többek között a teljesítmény, funkció,
-                    integrálás, rendszer és felhasználói befogadás terén gyakorlati
-                    tapasztalattal rendelkező szoftvermérnök vagyok.
-                </p>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="works">
-        <div class="header">
-            <h1>Munkáim</h1>
-            <a href="https://sites.google.com/view/webalapok-eduard/">Több információ</a>
-        </div>
-        <div class="works-cards">
-            <div class="card">
-                <div class="info">
-                    <a class="logo" href="https://kovacseduard.github.io/WaterService/"><img src="images/WaterService.png" alt="WaterService"></a>
-                    <p>
-                        WaterService vállalat számára responsive weboldalt készítettem, tiszta, hatékony, és karbantartható kóddal.
-                    </p>
-                    <a class="btn" href="https://kovacseduard.github.io/WaterService/">Tovább a weboldara!</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <button class="scroll-top" onclick="scrollToTop()">
-        <i class='bx bxs-up-arrow'></i>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Téma váltás">
+        <span id="theme-icon">🌙</span>
     </button>
 
+    <section class="hero">
+        <div class="wave-bg">
+            <svg class="wave" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                <path class="wave-path" d="M0,300 Q300,100 600,300 T1200,300 T1800,300 T2400,300" />
+                <path class="wave-path" d="M0,350 Q300,450 600,350 T1200,350 T1800,350 T2400,350" />
+                <path class="wave-path" d="M0,400 Q300,250 600,400 T1200,400 T1800,400 T2400,400" />
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="profile-section">
+                <img src="img/profil.jpg" alt="Profilkép" class="profile-img" id="profileImg">
+                <div class="social-links">
+                    <a href="https://github.com/KovacsEduard" target="_blank" aria-label="GitHub">
+                        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>Kovács Eduard</h1>
+                <h2>Full Stack Fejlesztő</h2>
+            </div>
+        </div>
+    </section>
 
+    <article class="about-section">
+        <h2>Rólam</h2>
+        <div class="about-content">
+            <p>Több mint két éve foglalkozom szoftverfejlesztéssel a Gépészeti Technikumban, ahol szoftverfejlesztő és -tesztelő technikusnak tanulok. Iskolai és egyéni projektekben szerzett tapasztalataim során Python, C#, HTML, CSS és SQL technológiákkal dolgoztam.</p>
+            <p>Erősségeim a frontend fejlesztés, a logikai problémamegoldás és a hibakeresés. Egyéni projektjeim közé tartozik a waterservice.sk szolgáltatói weboldal és a folyamatosan bővített bemutatkozó oldalam. Célom, hogy mérnök informatikusként folytassam a pályámat és tovább fejlesszem szakmai tudásomat.</p>
+        </div>
+        <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/edit?utm_content=DAGH0oXyWxY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="cv-btn">Önéletrajz</a>
+    </article>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <section class="projects-section">
+        <h2>Projektjeim</h2>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kovács Eduard. Minden jog fenntartva.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-
 </html>
