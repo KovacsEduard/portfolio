@@ -12,6 +12,9 @@
     <meta property="og:image" content="img/profil.jpg">
     <title>Kovács Eduard – Developer Portfolio</title>
 
+    <!-- ── Tailwind CSS (CDN) ────────────────────────────────── -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- ── Your Styles ─────────────────────────────────────── -->
     <link rel="stylesheet" href="style.css">
 
@@ -25,91 +28,128 @@
     <!-- ── Font Awesome (social & contact icons) ────────────── -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+
+<body class="font-sans overflow-x-hidden" style="background: var(--bg); color: var(--text); line-height: 1.7; transition: background 0.3s, color 0.3s;">
 
     <!-- NAV -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-logo">KE<span class="dot">.</span></div>
-        <ul class="nav-links">
-            <li><a href="#about" data-i18n="nav_about">About</a></li>
-            <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
-            <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
-            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    <nav class="navbar fixed top-0 left-0 right-0 h-[68px] flex items-center justify-between px-8 z-[900] bg-transparent transition-all duration-300" id="navbar">
+        <div class="font-outfit font-extrabold text-2xl" style="color: var(--text); letter-spacing: -0.5px;">
+            KE<span style="color: var(--accent);">.</span>
+        </div>
+        <ul class="hidden md:flex gap-9 list-none">
+            <li><a href="#about"    data-i18n="nav_about"    class="text-[0.9rem] font-medium transition-colors duration-300 hover:text-[var(--accent)]" style="color: var(--text2);">About</a></li>
+            <li><a href="#skills"   data-i18n="nav_skills"   class="text-[0.9rem] font-medium transition-colors duration-300 hover:text-[var(--accent)]" style="color: var(--text2);">Skills</a></li>
+            <li><a href="#projects" data-i18n="nav_projects" class="text-[0.9rem] font-medium transition-colors duration-300 hover:text-[var(--accent)]" style="color: var(--text2);">Projects</a></li>
+            <li><a href="#contact"  data-i18n="nav_contact"  class="text-[0.9rem] font-medium transition-colors duration-300 hover:text-[var(--accent)]" style="color: var(--text2);">Contact</a></li>
         </ul>
-        <div class="nav-controls">
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <div class="flex items-center gap-2.5">
+            <button onclick="toggleTheme()" aria-label="Toggle theme"
+                class="border rounded-lg px-3 py-1.5 text-base font-bold font-outfit cursor-pointer transition-all duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                style="background: var(--surface); border-color: var(--border); color: var(--text2);">
                 <span id="theme-icon">🌙</span>
             </button>
-            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <button class="hamburger md:hidden flex flex-col gap-1.5 bg-transparent border-none cursor-pointer p-1.5" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
     <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" onclick="toggleMenu()" data-i18n="nav_about">About</a>
-        <a href="#skills" onclick="toggleMenu()" data-i18n="nav_skills">Skills</a>
-        <a href="#projects" onclick="toggleMenu()" data-i18n="nav_projects">Projects</a>
-        <a href="#contact" onclick="toggleMenu()" data-i18n="nav_contact">Contact</a>
+    <div class="mobile-menu fixed top-[68px] left-0 right-0 flex-col z-[899] px-8 pt-5 pb-7 gap-[18px] border-b"
+         id="mobileMenu" style="background: var(--bg2); border-color: var(--border);">
+        <a href="#about"    onclick="toggleMenu()" data-i18n="nav_about"    class="text-lg font-medium py-2 border-b transition-colors duration-300 hover:text-[var(--accent)] no-underline" style="color: var(--text2); border-color: var(--border);">About</a>
+        <a href="#skills"   onclick="toggleMenu()" data-i18n="nav_skills"   class="text-lg font-medium py-2 border-b transition-colors duration-300 hover:text-[var(--accent)] no-underline" style="color: var(--text2); border-color: var(--border);">Skills</a>
+        <a href="#projects" onclick="toggleMenu()" data-i18n="nav_projects" class="text-lg font-medium py-2 border-b transition-colors duration-300 hover:text-[var(--accent)] no-underline" style="color: var(--text2); border-color: var(--border);">Projects</a>
+        <a href="#contact"  onclick="toggleMenu()" data-i18n="nav_contact"  class="text-lg font-medium py-2 border-b transition-colors duration-300 hover:text-[var(--accent)] no-underline" style="color: var(--text2); border-color: var(--border);">Contact</a>
     </div>
 
     <!-- HERO -->
-    <section class="hero" id="home">
+    <section class="min-h-screen pt-[128px] pb-20 px-6 flex items-center justify-center gap-[60px] max-w-[1180px] mx-auto relative flex-wrap" id="home">
         <div class="hero-grid-bg"></div>
-        <div class="hero-glow"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Kovács<br><span class="accent-text">Eduárd</span></h1>
-            <p class="hero-subtitle" data-i18n="hero_subtitle">Software Developer & Tester</p>
-            <p class="hero-desc" data-i18n="hero_desc">Building clean, functional software with attention to detail — from frontend interfaces to backend logic and quality testing.</p>
-            <div class="hero-actions">
-                <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">View Projects</a>
-                <a href="#contact" class="btn-secondary" data-i18n="hero_cta_contact">Get in Touch</a>
+        <div class="fixed top-[-200px] right-[-200px] w-[600px] h-[600px] rounded-full pointer-events-none -z-10"
+             style="background: radial-gradient(circle, rgba(0,200,255,0.12), transparent 70%);"></div>
+
+        <div class="hero-content flex-1 min-w-[280px] max-w-[580px]">
+            <h1 class="hero-title font-outfit font-extrabold mb-4" style="color: var(--text);">
+                Kovács<br><span style="color: var(--accent);">Eduárd</span>
+            </h1>
+            <p class="hero-subtitle font-normal mb-[18px]" data-i18n="hero_subtitle" style="color: var(--text2);">Software Developer & Tester</p>
+            <p class="text-[0.97rem] max-w-[460px] mb-9 leading-[1.75]" data-i18n="hero_desc" style="color: var(--text2);">
+                Building clean, functional software with attention to detail — from frontend interfaces to backend logic and quality testing.
+            </p>
+            <div class="flex gap-3.5 flex-wrap mb-9">
+                <a href="#projects" data-i18n="hero_cta_projects"
+                   class="inline-block px-[30px] py-[13px] rounded-[10px] font-outfit font-bold text-[0.9rem] no-underline transition-all duration-300 hover:-translate-y-0.5"
+                   style="background: var(--accent); color: #020d18; box-shadow: 0 0 24px var(--accent-glow);">View Projects</a>
+                <a href="#contact" data-i18n="hero_cta_contact"
+                   class="inline-block px-[30px] py-[13px] rounded-[10px] font-outfit font-semibold text-[0.9rem] border no-underline transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                   style="background: transparent; border-color: var(--border-hover); color: var(--text);">Get in Touch</a>
             </div>
-            <div class="hero-socials">
-                <a href="https://github.com/KovacsEduard" target="_blank" aria-label="GitHub" class="social-icon">
+            <div class="flex gap-3">
+                <a href="https://github.com/KovacsEduard" target="_blank" aria-label="GitHub"
+                   class="w-10 h-10 flex items-center justify-center border rounded-[10px] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                   style="background: var(--surface); border-color: var(--border); color: var(--text2);">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/edu%C3%A1rd-kov%C3%A1cs-11b5593b5" target="_blank" aria-label="LinkedIn" class="social-icon">
+                <a href="https://www.linkedin.com/in/edu%C3%A1rd-kov%C3%A1cs-11b5593b5" target="_blank" aria-label="LinkedIn"
+                   class="w-10 h-10 flex items-center justify-center border rounded-[10px] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                   style="background: var(--surface); border-color: var(--border); color: var(--text2);">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:kovaceduard7@gmail.com" aria-label="Email" class="social-icon">
+                <a href="mailto:kovaceduard7@gmail.com" aria-label="Email"
+                   class="w-10 h-10 flex items-center justify-center border rounded-[10px] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                   style="background: var(--surface); border-color: var(--border); color: var(--text2);">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </div>
-        <div class="hero-image-wrap">
-            <div class="hero-image-ring"></div>
-            <img src="img/profil.jpg" alt="Kovács Eduard" class="profile-img" id="profileImg" loading="lazy" onerror="this.style.background='var(--accent)';this.src=''">
+
+        <div class="hero-image-wrap relative flex-shrink-0">
+            <div class="absolute rounded-[32px] border z-0"
+                 style="inset: -10px; border-color: var(--border); background: linear-gradient(135deg, rgba(0,200,255,0.06), transparent);"></div>
+            <img src="img/profil.jpg" alt="Kovács Eduard" id="profileImg" loading="lazy"
+                 class="w-[280px] h-[340px] object-cover object-top rounded-[22px] block relative z-10"
+                 style="border: 1.5px solid var(--border-hover); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--border);"
+                 onerror="this.style.background='var(--accent)';this.src=''">
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="about-section section-fade" id="about">
-        <div class="container">
-            <h2 class="section-title" data-i18n="about_title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p data-i18n="about_p1">I have been working in software development for over two years at the Mechanical Technical School, where I am studying to become a software developer and tester. Through school and personal projects, I have gained experience with Python, C#, HTML, CSS, and SQL.</p>
-                    <p data-i18n="about_p2">My strengths lie in frontend development, logical problem-solving, and debugging. My personal projects include the waterservice.sk business website and this continuously evolving portfolio. My goal is to pursue a career as a software engineer and keep growing professionally.</p>
-                    <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/view" class="btn-primary" target="_blank" data-i18n="about_cv">Download CV</a>
+    <section class="section-fade py-[100px]" id="about">
+        <div class="max-w-[1180px] mx-auto px-6">
+            <h2 class="section-title font-outfit font-extrabold mb-12" data-i18n="about_title" style="color: var(--text);">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-start">
+                <div>
+                    <p class="text-[0.97rem] mb-5 leading-[1.8]" data-i18n="about_p1" style="color: var(--text2);">
+                        I have been working in software development for over two years at the Mechanical Technical School, where I am studying to become a software developer and tester. Through school and personal projects, I have gained experience with Python, C#, HTML, CSS, and SQL.
+                    </p>
+                    <p class="text-[0.97rem] mb-5 leading-[1.8]" data-i18n="about_p2" style="color: var(--text2);">
+                        My strengths lie in frontend development, logical problem-solving, and debugging. My personal projects include the waterservice.sk business website and this continuously evolving portfolio. My goal is to pursue a career as a software engineer and keep growing professionally.
+                    </p>
+                    <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/view" target="_blank" data-i18n="about_cv"
+                       class="inline-block mt-2 px-[30px] py-[13px] rounded-[10px] font-outfit font-bold text-[0.9rem] no-underline transition-all duration-300 hover:-translate-y-0.5"
+                       style="background: var(--accent); color: #020d18; box-shadow: 0 0 24px var(--accent-glow);">Download CV</a>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-num">2+</span>
-                        <span class="stat-label" data-i18n="stat_years">Years Experience</span>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="border rounded-[14px] p-6 flex flex-col gap-1.5 transition-all duration-300 hover:shadow-lg hover:border-[var(--border-hover)]"
+                         style="background: var(--surface); border-color: var(--border);">
+                        <span class="font-outfit font-extrabold text-[2rem] leading-none" style="color: var(--accent);">2+</span>
+                        <span class="text-[0.82rem] font-medium" data-i18n="stat_years" style="color: var(--text2);">Years Experience</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-num">5+</span>
-                        <span class="stat-label" data-i18n="stat_tech">Technologies</span>
+                    <div class="border rounded-[14px] p-6 flex flex-col gap-1.5 transition-all duration-300 hover:shadow-lg hover:border-[var(--border-hover)]"
+                         style="background: var(--surface); border-color: var(--border);">
+                        <span class="font-outfit font-extrabold text-[2rem] leading-none" style="color: var(--accent);">5+</span>
+                        <span class="text-[0.82rem] font-medium" data-i18n="stat_tech" style="color: var(--text2);">Technologies</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-num">4+</span>
-                        <span class="stat-label" data-i18n="stat_projects">Projects</span>
+                    <div class="border rounded-[14px] p-6 flex flex-col gap-1.5 transition-all duration-300 hover:shadow-lg hover:border-[var(--border-hover)]"
+                         style="background: var(--surface); border-color: var(--border);">
+                        <span class="font-outfit font-extrabold text-[2rem] leading-none" style="color: var(--accent);">4+</span>
+                        <span class="text-[0.82rem] font-medium" data-i18n="stat_projects" style="color: var(--text2);">Projects</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-num">1</span>
-                        <span class="stat-label" data-i18n="stat_live">Live Site</span>
+                    <div class="border rounded-[14px] p-6 flex flex-col gap-1.5 transition-all duration-300 hover:shadow-lg hover:border-[var(--border-hover)]"
+                         style="background: var(--surface); border-color: var(--border);">
+                        <span class="font-outfit font-extrabold text-[2rem] leading-none" style="color: var(--accent);">1</span>
+                        <span class="text-[0.82rem] font-medium" data-i18n="stat_live" style="color: var(--text2);">Live Site</span>
                     </div>
                 </div>
             </div>
@@ -117,73 +157,99 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="skills-section section-fade" id="skills">
-        <div class="container">
-            <h2 class="section-title" data-i18n="skills_title">Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-python-plain colored"></i></span>
+    <section class="section-fade py-[100px]" id="skills" style="background: var(--bg2);">
+        <div class="max-w-[1180px] mx-auto px-6">
+            <h2 class="section-title font-outfit font-extrabold mb-12" data-i18n="skills_title" style="color: var(--text);">Tech Stack</h2>
+            <div class="flex flex-wrap gap-3">
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-python-plain colored"></i></span>
                     <span>Python</span>
                 </div>
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-csharp-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-csharp-plain colored"></i></span>
                     <span>C#</span>
                 </div>
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-html5-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-html5-plain colored"></i></span>
                     <span>HTML5</span>
                 </div>
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-css3-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-css3-plain colored"></i></span>
                     <span>CSS3</span>
                 </div>
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-azuresqldatabase-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-azuresqldatabase-plain colored"></i></span>
                     <span>SQL</span>
                 </div>
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-javascript-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-javascript-plain colored"></i></span>
                     <span>JavaScript</span>
                 </div>
-                <div class="skill-badge">
-                    <span class="skill-icon"><i class="devicon-git-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-git-plain colored"></i></span>
                     <span>Git</span>
                 </div>
-                <div class="skill-badge skill-badge--soft">
-                    <span class="skill-icon"><i class="devicon-selenium-plain colored"></i></span>
+
+                <!-- Soft skills — dashed border -->
+                <div class="skill-badge flex items-center gap-2.5 border border-dashed rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text2);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-selenium-plain colored"></i></span>
                     <span data-i18n="skill_testing">Software Testing</span>
                 </div>
-                <div class="skill-badge skill-badge--soft">
-                    <span class="skill-icon"><i class="devicon-vscode-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border border-dashed rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text2);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-vscode-plain colored"></i></span>
                     <span data-i18n="skill_debug">Debugging</span>
                 </div>
-                <div class="skill-badge skill-badge--soft">
-                    <span class="skill-icon"><i class="devicon-chrome-plain colored"></i></span>
+
+                <div class="skill-badge flex items-center gap-2.5 border border-dashed rounded-[10px] px-[18px] py-[11px] text-[0.88rem] font-semibold font-outfit cursor-default transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)]"
+                     style="background: var(--surface); border-color: var(--border); color: var(--text2);">
+                    <span class="skill-icon w-[38px] h-[38px] flex items-center justify-center border rounded-lg text-[1.4rem] flex-shrink-0 transition-all duration-300" style="background: var(--bg); border-color: var(--border);"><i class="devicon-chrome-plain colored"></i></span>
                     <span data-i18n="skill_frontend">Frontend Dev</span>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- PROJECTS -->
-    <section class="projects-section section-fade" id="projects">
-        <div class="container">
-            <h2 class="section-title" data-i18n="projects_title">Projects</h2>
+    <section class="section-fade py-[100px]" id="projects">
+        <div class="max-w-[1180px] mx-auto px-6">
+            <h2 class="section-title font-outfit font-extrabold mb-12" data-i18n="projects_title" style="color: var(--text);">Projects</h2>
             <div class="projects-grid" id="projectsGrid"></div>
         </div>
     </section>
 
     <!-- EDUCATION -->
-    <section class="education-section section-fade" id="education">
-        <div class="container">
-            <h2 class="section-title" data-i18n="edu_title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023 – <span data-i18n="edu_present">Present</span></div>
-                        <h3 data-i18n="edu_school">Mechanical Technical School</h3>
-                        <p data-i18n="edu_degree">Software Developer & Tester Technician</p>
+    <section class="section-fade py-[100px]" id="education">
+        <div class="max-w-[1180px] mx-auto px-6">
+            <h2 class="section-title font-outfit font-extrabold mb-12" data-i18n="edu_title" style="color: var(--text);">Education</h2>
+            <div class="timeline relative pl-7">
+                <div class="relative mb-10">
+                    <div class="absolute left-[-24px] top-1.5 w-[13px] h-[13px] rounded-full border-2"
+                         style="background: var(--accent); border-color: var(--bg); box-shadow: 0 0 12px var(--accent-glow);"></div>
+                    <div class="border rounded-[14px] px-7 py-6 transition-colors duration-300 hover:border-[var(--border-hover)]"
+                         style="background: var(--surface); border-color: var(--border);">
+                        <div class="font-outfit text-[0.8rem] font-bold tracking-wider mb-1.5" style="color: var(--accent);">
+                            2023 – <span data-i18n="edu_present">Present</span>
+                        </div>
+                        <h3 class="font-outfit font-bold text-[1.1rem] mb-1" data-i18n="edu_school" style="color: var(--text);">Mechanical Technical School</h3>
+                        <p class="text-[0.9rem]" data-i18n="edu_degree" style="color: var(--text2);">Software Developer & Tester Technician</p>
                     </div>
                 </div>
             </div>
@@ -191,44 +257,38 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact-section section-fade" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-i18n="contact_title">Contact</h2>
-            <p class="contact-sub" data-i18n="contact_sub">Have a project in mind or want to work together? Feel free to reach out.</p>
+    <section class="section-fade py-[100px]" id="contact" style="background: var(--bg2);">
+        <div class="max-w-[1180px] mx-auto px-6">
+            <h2 class="section-title font-outfit font-extrabold mb-4" data-i18n="contact_title" style="color: var(--text);">Contact</h2>
+            <p class="text-[0.97rem] mb-10" data-i18n="contact_sub" style="color: var(--text2);">Have a project in mind or want to work together? Feel free to reach out.</p>
             <div class="contact-cards">
-                <a href="mailto:kovaceduard7@gmail.com" class="contact-card">
-                    <div class="contact-card-icon social-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
+                <a href="mailto:kovaceduard7@gmail.com" class="no-underline flex items-center gap-[18px] border rounded-[14px] px-6 py-[22px] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-lg" style="background: var(--surface); border-color: var(--border); color: inherit;">
+                    <div class="w-10 h-10 flex items-center justify-center border rounded-[10px] flex-shrink-0" style="background: var(--surface); border-color: var(--border); color: var(--text2);"><i class="fas fa-envelope"></i></div>
                     <div>
-                        <div class="contact-card-label" data-i18n="contact_email">Email</div>
-                        <div class="contact-card-value"><span class="__cf_email__" data-cfemail="cba0a4bdaaa8aeafbeaab9affc8baca6aaa2a7e5a8a4a6">kovaceduard2@gmail.com</span></div>
+                        <div class="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" data-i18n="contact_email" style="color: var(--accent);">Email</div>
+                        <div class="text-[0.88rem] break-all" style="color: var(--text2);">kovaceduard7@gmail.com</div>
                     </div>
                 </a>
-                <a href="tel:+36204311776" class="contact-card">
-                    <div class="contact-card-icon social-icon">
-                       <i class="fas fa-phone"></i>
-                    </div>
+                <a href="tel:+36204311776" class="no-underline flex items-center gap-[18px] border rounded-[14px] px-6 py-[22px] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-lg" style="background: var(--surface); border-color: var(--border); color: inherit;">
+                    <div class="w-10 h-10 flex items-center justify-center border rounded-[10px] flex-shrink-0" style="background: var(--surface); border-color: var(--border); color: var(--text2);"><i class="fas fa-phone"></i></div>
                     <div>
-                        <div class="contact-card-label" data-i18n="contact_phone">Phone</div>
-                        <div class="contact-card-value">+36 20 431 1776</div>
+                        <div class="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" data-i18n="contact_phone" style="color: var(--accent);">Phone</div>
+                        <div class="text-[0.88rem]" style="color: var(--text2);">+36 20 431 1776</div>
                     </div>
                 </a>
-                <a href="https://www.linkedin.com/in/edu%C3%A1rd-kov%C3%A1cs-11b5593b5" target="_blank" class="contact-card">
-                    <div class="contact-card-icon social-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
+                <a href="https://www.linkedin.com/in/edu%C3%A1rd-kov%C3%A1cs-11b5593b5" target="_blank" class="no-underline flex items-center gap-[18px] border rounded-[14px] px-6 py-[22px] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-lg" style="background: var(--surface); border-color: var(--border); color: inherit;">
+                    <div class="w-10 h-10 flex items-center justify-center border rounded-[10px] flex-shrink-0" style="background: var(--surface); border-color: var(--border); color: var(--text2);"><i class="fab fa-linkedin"></i></div>
                     <div>
-                        <div class="contact-card-label">LinkedIn</div>
-                        <div class="contact-card-value">Kovács Eduárd</div>
+                        <div class="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style="color: var(--accent);">LinkedIn</div>
+                        <div class="text-[0.88rem]" style="color: var(--text2);">Kovács Eduárd</div>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Kovács Eduárd. <span data-i18n="footer_rights">All rights reserved.</span></p>
+    <footer class="py-8 px-6 text-center text-[0.82rem] border-t" style="color: var(--text3); border-color: var(--border); background: var(--bg);">
+        <p>&copy; 2025 Kovács Eduárd. <span data-i18n="footer_rights">All rights reserved.</span></p>
     </footer>
 
     <script src="script.js"></script>

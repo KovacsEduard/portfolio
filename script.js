@@ -1,65 +1,73 @@
+/* ─── TAILWIND CONFIG ────────────────────────────────────── */
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                outfit: ['Outfit', 'sans-serif'],
+                sans:   ['Instrument Sans', 'sans-serif'],
+            },
+        }
+    }
+}
+
 /* ─── TRANSLATIONS ───────────────────────────────────────── */
 const translations = {
-    nav_about:       "About",
-    nav_skills:      "Skills",
-    nav_projects:    "Projects",
-    nav_contact:     "Contact",
-    hero_subtitle:   "Software Developer & Tester",
-    hero_desc:       "Building clean, functional software with attention to detail — from frontend interfaces to backend logic and quality testing.",
+    nav_about:         "About",
+    nav_skills:        "Skills",
+    nav_projects:      "Projects",
+    nav_contact:       "Contact",
+    hero_subtitle:     "Software Developer & Tester",
+    hero_desc:         "Building clean, functional software with attention to detail — from frontend interfaces to backend logic and quality testing.",
     hero_cta_projects: "View Projects",
     hero_cta_contact:  "Get in Touch",
-    about_title:     "About Me",
-    about_p1:        "I have been working in software development for over two years at the Mechanical Technical School, where I am studying to become a software developer and tester. Through school and personal projects, I have gained experience with Python, C#, HTML, CSS, and SQL.",
-    about_p2:        "My strengths lie in frontend development, logical problem-solving, and debugging. My personal projects include the waterservice.sk business website and this continuously evolving portfolio. My goal is to pursue a career as a software engineer and keep growing professionally.",
-    about_cv:        "Download CV",
-    stat_years:      "Years Experience",
-    stat_tech:       "Technologies",
-    stat_projects:   "Projects",
-    stat_live:       "Live Site",
-    skills_title:    "Tech Stack",
-    skill_testing:   "Software Testing",
-    skill_debug:     "Debugging",
-    skill_frontend:  "Frontend Dev",
-    projects_title:  "Projects",
-    edu_title:       "Education",
-    edu_present:     "Present",
-    edu_school:      "MSzC Gépészeti Technikum",
-    edu_degree:      "Software Developer & Tester Technician",
-    contact_title:   "Contact",
-    contact_sub:     "Have a project in mind or want to work together? Feel free to reach out.",
-    contact_email:   "Email",
-    contact_phone:   "Phone",
-    footer_rights:   "All rights reserved.",
-    proj_view:       "View Website",
-    proj_soon:       "Coming Soon",
-    proj_wip:        "Work in Progress",
+    about_title:       "About Me",
+    about_p1:          "I have been working in software development for over two years at the Mechanical Technical School, where I am studying to become a software developer and tester. Through school and personal projects, I have gained experience with Python, C#, HTML, CSS, and SQL.",
+    about_p2:          "My strengths lie in frontend development, logical problem-solving, and debugging. My personal projects include the waterservice.sk business website and this continuously evolving portfolio. My goal is to pursue a career as a software engineer and keep growing professionally.",
+    about_cv:          "Download CV",
+    stat_years:        "Years Experience",
+    stat_tech:         "Technologies",
+    stat_projects:     "Projects",
+    stat_live:         "Live Site",
+    skills_title:      "Tech Stack",
+    skill_testing:     "Software Testing",
+    skill_debug:       "Debugging",
+    skill_frontend:    "Frontend Dev",
+    projects_title:    "Projects",
+    edu_title:         "Education",
+    edu_present:       "Present",
+    edu_school:        "MSzC Gépészeti Technikum",
+    edu_degree:        "Software Developer & Tester Technician",
+    contact_title:     "Contact",
+    contact_sub:       "Have a project in mind or want to work together? Feel free to reach out.",
+    contact_email:     "Email",
+    contact_phone:     "Phone",
+    footer_rights:     "All rights reserved.",
+    proj_view:         "View Website",
+    proj_soon:         "Coming Soon",
+    proj_wip:          "Work in Progress",
 };
 
 /* ─── PROJECTS DATA ──────────────────────────────────────── */
 const projects = [
     {
         title:       "WaterService",
-        desc_en:     "Full-featured business website for WaterService, showcasing company services, work history and contact information.",
-        desc_hu:     "Teljes funkcionalitású vállalkozási weboldal a WaterService számára, bemutatva a cég szolgáltatásait, munkáit és elérhetőségeit.",
+        desc:        "Full-featured business website for WaterService, showcasing company services, work history and contact information.",
         image:       "img/waterservice.png",
-        tag_en:      "Live Project",
-        tag_hu:      "Élő projekt",
+        tag:         "Live Project",
         liveUrl:     "https://waterservice.sk/",
         placeholder: false
     },
     {
         title:       "Gépészeti munkáim",
-        desc_en:     "School projects completed during my studies, used to develop and demonstrate my technical skills.",
-        desc_hu:     "Iskola közben elkészített projektjeim, melyekkel fejlesztettem és bemutattam a tudásomat.",
+        desc:        "School projects completed during my studies, used to develop and demonstrate my technical skills.",
         image:       "img/webalapok.png",
-        tag_en:      "School Projects",
-        tag_hu:      "Iskolai projektek",
+        tag:         "School Projects",
         liveUrl:     "https://sites.google.com/view/webalapok-eduard/projekt-11-szf",
         placeholder: false
     }
 ];
 
-/* ─── LANGUAGE ───────────────────────────────────────────── */
+/* ─── TRANSLATIONS APPLY ─────────────────────────────────── */
 function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -108,7 +116,6 @@ function initScrollReveal() {
     const elements = document.querySelectorAll('.section-fade');
 
     if (!('IntersectionObserver' in window)) {
-        // Fallback: just show everything
         elements.forEach(el => el.classList.add('visible'));
         return;
     }
@@ -127,26 +134,33 @@ function initScrollReveal() {
 
 /* ─── RENDER PROJECTS ────────────────────────────────────── */
 function renderProjects() {
-    const t = translations;
     const grid = document.getElementById('projectsGrid');
 
     grid.innerHTML = projects.map(p => {
-        const desc = p.desc_en;
-        const tag  = p.tag_en;
         const imgHtml = p.image
-            ? `<img src="${p.image}" alt="${p.title}" class="project-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'project-placeholder\\'>${p.icon || '💻'}</div>'">`
-            : `<div class="project-placeholder">${p.icon || '💻'}</div>`;
+            ? `<img src="${p.image}" alt="${p.title}" loading="lazy"
+                class="w-full h-full object-cover object-top block transition-transform duration-500"
+                onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-4xl\\'>${p.icon || '💻'}</div>'">`
+            : `<div class="w-full h-full flex items-center justify-center text-4xl">${p.icon || '💻'}</div>`;
+
         const btnHtml = p.liveUrl
-            ? `<a href="${p.liveUrl}" class="project-btn" target="_blank" rel="noopener">${t.proj_view}</a>`
-            : `<span class="project-btn project-btn--placeholder">${p.placeholder ? t.proj_soon : t.proj_wip}</span>`;
+            ? `<a href="${p.liveUrl}" target="_blank" rel="noopener"
+                class="block w-full py-[11px] border rounded-[9px] text-center text-[0.85rem] font-bold font-outfit no-underline transition-all duration-300 hover:text-[#020d18] hover:border-[var(--accent)] hover:bg-[var(--accent)]"
+                style="border-color: var(--border-hover); color: var(--text2);">${translations.proj_view}</a>`
+            : `<span
+                class="block w-full py-[11px] border rounded-[9px] text-center text-[0.85rem] font-bold font-outfit opacity-40 pointer-events-none"
+                style="border-color: var(--border-hover); color: var(--text2);">${p.placeholder ? translations.proj_soon : translations.proj_wip}</span>`;
 
         return `
-        <article class="project-card">
-            <div class="project-img-wrap">${imgHtml}</div>
-            <div class="project-content">
-                <span class="project-tag">${tag}</span>
-                <h3>${p.title}</h3>
-                <p>${desc}</p>
+        <article class="flex flex-col border rounded-[22px] overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[var(--border-hover)]"
+                 style="background: var(--surface); border-color: var(--border);">
+            <div class="relative overflow-hidden h-[200px]" style="background: var(--bg3);">
+                ${imgHtml}
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+                <span class="text-[0.72rem] font-bold tracking-widest uppercase font-outfit mb-2.5" style="color: var(--accent);">${p.tag}</span>
+                <h3 class="font-outfit font-bold text-[1.2rem] mb-2.5" style="color: var(--text);">${p.title}</h3>
+                <p class="text-[0.88rem] leading-[1.7] flex-1 mb-5" style="color: var(--text2);">${p.desc}</p>
                 ${btnHtml}
             </div>
         </article>`;
