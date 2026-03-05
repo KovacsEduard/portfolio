@@ -121,13 +121,13 @@ a { text-decoration: none; color: inherit; }
     gap: 10px;
 }
 
-.lang-toggle, .theme-toggle {
+.theme-toggle {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 7px 13px;
+    padding: 7px 11px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text2);
     font-family: 'Outfit', sans-serif;
@@ -135,12 +135,10 @@ a { text-decoration: none; color: inherit; }
     transition: all var(--transition);
 }
 
-.lang-toggle:hover, .theme-toggle:hover {
+.theme-toggle:hover {
     border-color: var(--accent);
     color: var(--accent);
 }
-
-.theme-toggle { font-size: 1rem; padding: 7px 11px; }
 
 .hamburger {
     display: none;
