@@ -1,66 +1,240 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en" data-theme="dark" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Full Stack Fejlesztő portfólió bemutatva webfejlesztési projekteket és szakértelmet">
-    <meta name="keywords" content="Full Stack Fejlesztő, Webfejlesztő, Portfólió, JavaScript, React, Node.js">
+    <meta name="description" content="Kovács Eduard – Software Developer & Tester Portfolio">
+    <meta name="keywords" content="Software Developer, Tester, Portfolio, JavaScript, Python, C#, HTML, CSS, SQL">
     <meta name="author" content="Kovács Eduard">
-    <meta property="og:title" content="Full Stack Fejlesztő Portfólió">
-    <meta property="og:description" content="Fedezd fel webfejlesztési projektjeimet és szakmai tapasztalatomat">
+    <meta property="og:title" content="Kovács Eduard – Developer Portfolio">
+    <meta property="og:description" content="Software Developer & Tester – explore my projects and experience">
     <meta property="og:type" content="website">
-    <title>Szoftverfejlesztő és -tesztelő Portfólió</title>
+    <meta property="og:image" content="img/profil.jpg">
+    <title>Kovács Eduard – Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Téma váltás">
-        <span id="theme-icon">🌙</span>
-    </button>
 
-    <section class="hero">
-        <div class="wave-bg">
-            <svg class="wave" viewBox="0 0 1200 600" preserveAspectRatio="none">
-                <path class="wave-path" d="M0,300 Q300,100 600,300 T1200,300 T1800,300 T2400,300" />
-                <path class="wave-path" d="M0,350 Q300,450 600,350 T1200,350 T1800,350 T2400,350" />
-                <path class="wave-path" d="M0,400 Q300,250 600,400 T1200,400 T1800,400 T2400,400" />
-            </svg>
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">KE<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">
+                <span id="lang-label">HU</span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="toggleMenu()" data-i18n="nav_about">About</a>
+        <a href="#skills" onclick="toggleMenu()" data-i18n="nav_skills">Skills</a>
+        <a href="#projects" onclick="toggleMenu()" data-i18n="nav_projects">Projects</a>
+        <a href="#contact" onclick="toggleMenu()" data-i18n="nav_contact">Contact</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow"></div>
         <div class="hero-content">
-            <div class="profile-section">
-                <img src="img/profil.jpg" alt="Profilkép" class="profile-img" id="profileImg">
-                <div class="social-links">
-                    <a href="https://github.com/KovacsEduard" target="_blank" aria-label="GitHub">
-                        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                    </a>
-                </div>
+            <h1 class="hero-title">Kovács<br><span class="accent-text">Eduard</span></h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Software Developer & Tester</p>
+            <p class="hero-desc" data-i18n="hero_desc">Building clean, functional software with attention to detail — from frontend interfaces to backend logic and quality testing.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">View Projects</a>
+                <a href="#contact" class="btn-secondary" data-i18n="hero_cta_contact">Get in Touch</a>
             </div>
-            <div class="hero-text">
-                <h1>Kovács Eduard</h1>
-                <h2>Szoftverfejlesztő és -tesztelő</h2>
+            <div class="hero-socials">
+                <a href="https://github.com/KovacsEduard" target="_blank" aria-label="GitHub" class="social-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/edu%C3%A1rd-kov%C3%A1cs-11b5593b5" target="_blank" aria-label="LinkedIn" class="social-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                </a>
+                <a href="mailto:kovaceduard7@gmail.com" aria-label="Email" class="social-icon">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image-wrap">
+            <div class="hero-image-ring"></div>
+            <img src="img/profil.jpg" alt="Kovács Eduard" class="profile-img" id="profileImg" loading="lazy" onerror="this.style.background='var(--accent)';this.src=''">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section section-fade" id="about">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about_title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-i18n="about_p1">I have been working in software development for over two years at the Mechanical Technical School, where I am studying to become a software developer and tester. Through school and personal projects, I have gained experience with Python, C#, HTML, CSS, and SQL.</p>
+                    <p data-i18n="about_p2">My strengths lie in frontend development, logical problem-solving, and debugging. My personal projects include the waterservice.sk business website and this continuously evolving portfolio. My goal is to pursue a career as a software engineer and keep growing professionally.</p>
+                    <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/view" class="btn-primary" target="_blank" data-i18n="about_cv">Download CV</a>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-num">2+</span>
+                        <span class="stat-label" data-i18n="stat_years">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">5+</span>
+                        <span class="stat-label" data-i18n="stat_tech">Technologies</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">4+</span>
+                        <span class="stat-label" data-i18n="stat_projects">Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">1</span>
+                        <span class="stat-label" data-i18n="stat_live">Live Site</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <article class="about-section">
-        <h2>Rólam</h2>
-        <div class="about-content">
-            <p>Több mint két éve foglalkozom szoftverfejlesztéssel a Gépészeti Technikumban, ahol szoftverfejlesztő és -tesztelő technikusnak tanulok. Iskolai és egyéni projektekben szerzett tapasztalataim során Python, C#, HTML, CSS és SQL technológiákkal dolgoztam.</p>
-            <p>Erősségeim a frontend fejlesztés, a logikai problémamegoldás és a hibakeresés. Egyéni projektjeim közé tartozik a waterservice.sk szolgáltatói weboldal és a folyamatosan bővített bemutatkozó oldalam. Célom, hogy mérnök informatikusként folytassam a pályámat és tovább fejlesszem szakmai tudásomat.</p>
+    <!-- SKILLS -->
+    <section class="skills-section section-fade" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-i18n="skills_title">Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-python-plain colored"></i></span>
+                    <span>Python</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-csharp-plain colored"></i></span>
+                    <span>C#</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-html5-plain colored"></i></span>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-css3-plain colored"></i></span>
+                    <span>CSS3</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-azuresqldatabase-plain colored"></i></span>
+                    <span>SQL</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-javascript-plain colored"></i></span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon"><i class="devicon-git-plain colored"></i></span>
+                    <span>Git</span>
+                </div>
+                <div class="skill-badge skill-badge--soft">
+                    <span class="skill-icon"><i class="devicon-selenium-plain colored"></i></span>
+                    <span data-i18n="skill_testing">Software Testing</span>
+                </div>
+                <div class="skill-badge skill-badge--soft">
+                    <span class="skill-icon"><i class="devicon-vscode-plain colored"></i></span>
+                    <span data-i18n="skill_debug">Debugging</span>
+                </div>
+                <div class="skill-badge skill-badge--soft">
+                    <span class="skill-icon"><i class="devicon-chrome-plain colored"></i></span>
+                    <span data-i18n="skill_frontend">Frontend Dev</span>
+                </div>
+            </div>
         </div>
-        <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/edit?utm_content=DAGH0oXyWxY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="cv-btn">Önéletrajz</a>
-    </article>
+    </section>
 
-    <section class="projects-section">
-        <h2>Projektjeim</h2>
-        <div class="projects-grid" id="projectsGrid">
-            <!-- Projects will be dynamically inserted here -->
+    <!-- PROJECTS -->
+    <section class="projects-section section-fade" id="projects">
+        <div class="container">
+            <h2 class="section-title" data-i18n="projects_title">Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education-section section-fade" id="education">
+        <div class="container">
+            <h2 class="section-title" data-i18n="edu_title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023 – <span data-i18n="edu_present">Present</span></div>
+                        <h3 data-i18n="edu_school">Mechanical Technical School</h3>
+                        <p data-i18n="edu_degree">Software Developer & Tester Technician</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section section-fade" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+            <p class="contact-sub" data-i18n="contact_sub">Have a project in mind or want to work together? Feel free to reach out.</p>
+            <div class="contact-cards">
+                <a href="mailto:kovaceduard7@gmail.com" class="contact-card">
+                    <div class="contact-card-icon social-icon">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="contact-card-label" data-i18n="contact_email">Email</div>
+                        <div class="contact-card-value">kovaceduard7@gmail.com</div>
+                    </div>
+                </a>
+                <a href="tel:+36204311776" class="contact-card">
+                    <div class="contact-card-icon social-icon">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="contact-card-label" data-i18n="contact_phone">Phone</div>
+                        <div class="contact-card-value">+36 20 431 1776</div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/edu%C3%A1rd-kov%C3%A1cs-11b5593b5" target="_blank" class="contact-card">
+                    <div class="contact-card-icon social-icon">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="contact-card-label">LinkedIn</div>
+                        <div class="contact-card-value">Kovács Eduard</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Kovács Eduard. Minden jog fenntartva.</p>
+        <p>&copy; 2025 Kovács Eduard. <span data-i18n="footer_rights">All rights reserved.</span></p>
     </footer>
 
     <script src="script.js"></script>
