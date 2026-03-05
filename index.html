@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Full Stack Fejlesztő portfólió bemutatva webfejlesztési projekteket és szakértelmet">
+    <meta name="keywords" content="Full Stack Fejlesztő, Webfejlesztő, Portfólió, JavaScript, React, Node.js">
+    <meta name="author" content="Kovács Eduard">
+    <meta property="og:title" content="Full Stack Fejlesztő Portfólió">
+    <meta property="og:description" content="Fedezd fel webfejlesztési projektjeimet és szakmai tapasztalatomat">
+    <meta property="og:type" content="website">
+    <title>Szoftverfejlesztő és -tesztelő Portfólió</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Téma váltás">
+        <span id="theme-icon">🌙</span>
+    </button>
+
+    <section class="hero">
+        <div class="wave-bg">
+            <svg class="wave" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                <path class="wave-path" d="M0,300 Q300,100 600,300 T1200,300 T1800,300 T2400,300" />
+                <path class="wave-path" d="M0,350 Q300,450 600,350 T1200,350 T1800,350 T2400,350" />
+                <path class="wave-path" d="M0,400 Q300,250 600,400 T1200,400 T1800,400 T2400,400" />
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="profile-section">
+                <img src="img/profil.jpg" alt="Profilkép" class="profile-img" id="profileImg">
+                <div class="social-links">
+                    <a href="https://github.com/KovacsEduard" target="_blank" aria-label="GitHub">
+                        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>Kovács Eduard</h1>
+                <h2>Szoftverfejlesztő és -tesztelő</h2>
+            </div>
+        </div>
+    </section>
+
+    <article class="about-section">
+        <h2>Rólam</h2>
+        <div class="about-content">
+            <p>Több mint két éve foglalkozom szoftverfejlesztéssel a Gépészeti Technikumban, ahol szoftverfejlesztő és -tesztelő technikusnak tanulok. Iskolai és egyéni projektekben szerzett tapasztalataim során Python, C#, HTML, CSS és SQL technológiákkal dolgoztam.</p>
+            <p>Erősségeim a frontend fejlesztés, a logikai problémamegoldás és a hibakeresés. Egyéni projektjeim közé tartozik a waterservice.sk szolgáltatói weboldal és a folyamatosan bővített bemutatkozó oldalam. Célom, hogy mérnök informatikusként folytassam a pályámat és tovább fejlesszem szakmai tudásomat.</p>
+        </div>
+        <a href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/edit?utm_content=DAGH0oXyWxY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="cv-btn">Önéletrajz</a>
+    </article>
+
+    <section class="projects-section">
+        <h2>Projektjeim</h2>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kovács Eduard. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
