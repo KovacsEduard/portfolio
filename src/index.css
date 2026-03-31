@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ── CSS variables ─────────────────────────────────── */
+:root {
+    --accent:       #00c8ff;
+    --accent-glow:  rgba(0,200,255,0.18);
+    --bg:           #050c15;
+    --bg-rgb:       5, 12, 21; /* Added for transparent navbar */
+    --bg2:          #0a1628;
+    --surface:      #0d1e35;
+    --border:       rgba(0,200,255,0.12);
+    --text:         #e8f4ff;
+    --text2:        #7aa3c8;
+}
+
+[data-theme="light"] {
+    --accent:       #0070e0;
+    --accent-glow:  rgba(0,112,224,0.14);
+    --bg:           #f0f6ff;
+    --bg-rgb:       240, 246, 255; /* Added for transparent navbar */
+    --bg2:          #e4eefa;
+    --surface:      #ffffff;
+    --border:       rgba(0,100,200,0.14);
+    --text:         #06192e;
+    --text2:        #3a6080;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ── Global Styles ─────────────────────────────────── */
+body {
+    overflow-x: hidden;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ── Navbar scroll effect ────────────────────────────── */
+.navbar-scrolled { 
+    background: rgba(var(--bg-rgb), 0.8) !important; 
+    backdrop-filter: blur(18px); 
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Hamburger Animation ─────────────────────────────── */
+/* These classes match the state-based logic in your React Navbar */
+.hamburger.open span:nth-child(1) { 
+    transform: translateY(8px) rotate(45deg); 
+}
+.hamburger.open span:nth-child(2) { 
+    opacity: 0; 
+}
+.hamburger.open span:nth-child(3) { 
+    transform: translateY(-8px) rotate(-45deg); 
+}
+
+/* ── Grid bg dots (Fixed background) ─────────────────── */
+.hero-grid-bg {
+    position: fixed; inset: 0;
+    background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none; z-index: -1; opacity: 0.5;
+}
+
+/* ── Modern Custom Scrollbar ─────────────────────────── */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 20px;
+    border: 4px solid var(--bg); /* Floating effect */
+    transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Firefox Support */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--bg);
+}
+
+/* ── Skill icon glow on badge hover ─────────────────── */
+.skill-badge:hover .skill-icon { 
+    transform: scale(1.08); 
+    box-shadow: 0 0 10px var(--accent-glow); 
+    border-color: var(--accent) !important; 
+}
+
+/* ── Clamp font sizes for Hero ──────────────────────── */
+.hero-title    { font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -2px; line-height: 1; }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -1px; }
+
+/* Ensure smooth transitions for ScrollReveal */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease-out;
+}
