@@ -1,18 +1,20 @@
 import ScrollReveal from "./ScrollReveal";
+import waterImg from '../assets/waterservice.png';
+import schoolImg from '../assets/webalapok.png';
 
 export default function Projects() {
     const projects = [
         {
             title: "WaterService",
             desc: "Full-featured business website for WaterService, showcasing company services, work history and contact information.",
-            image: "src/assets/waterservice.png",
+            image: waterImg,
             tag: "Live Project",
             liveUrl: "https://waterservice.sk/",
         },
         {
             title: "Gépészeti munkáim",
             desc: "School projects completed during my studies, used to develop and demonstrate my technical skills.",
-            image: "src/assets/webalapok.png",
+            image: schoolImg,
             tag: "School Projects",
             liveUrl: "https://sites.google.com/view/webalapok-eduard/projekt-11-szf",
         }
