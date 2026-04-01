@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="none" stroke="#00c8ff" stroke-width="4"/>
+  <path d="M 20 10 L 20 90 M 20 50 L 70 10 M 40 65 L 75 90" fill="none" stroke="#00c8ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
   
-  <text x="32" y="67" font-family="Arial, sans-serif" font-weight="bold" font-size="50" fill="#00c8ff">K</text>
-  
-  <text x="58" y="67" font-family="Arial, sans-serif" font-weight="bold" font-size="50" fill="#e8f4ff">E</text>
+  <path d="M 60 40 L 90 40 L 90 60 L 60 60" fill="none" stroke="#e8f4ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
