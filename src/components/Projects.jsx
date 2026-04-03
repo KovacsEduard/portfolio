@@ -1,6 +1,6 @@
 import ScrollReveal from "./ScrollReveal";
-import waterImg from '../assets/waterservice.png';
-import schoolImg from '../assets/webalapok.png';
+import waterImg from '../assets/waterService.png';
+import schoolImg from '../assets/projektSzf.png';
 import { useLanguage } from '../language/LanguageContext';
 
 export default function Projects() {
@@ -44,7 +44,7 @@ export default function Projects() {
                                     <img 
                                         src={project.image} 
                                         alt={project.title} 
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" 
                                     />
                                     <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[0.7rem] font-bold uppercase tracking-wider"
                                          style={{ background: 'rgba(0,0,0,0.6)', color: 'var(--accent)', backdropFilter: 'blur(4px)', border: '1px solid var(--accent)' }}>
