@@ -1,15 +1,18 @@
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from '../language/LanguageContext';
 
 export default function Contact() {
+    const { lang, toggleLang, t } = useLanguage();
+    
     return (
         <section id="contact" className="py-[100px]" style={{ background: 'var(--bg2)' }}>
             <ScrollReveal>
                 <div className="max-w-[1180px] mx-auto px-6">
                     <h2 className="section-title font-outfit font-extrabold mb-4" style={{ color: 'var(--text)' }}>
-                        Contact
+                        {t.contact.title}
                     </h2>
                     <p className="text-[0.97rem] mb-10" style={{ color: 'var(--text2)' }}>
-                        Have a project in mind or want to work together? Feel free to reach out.
+                        {t.contact.subtitle}
                     </p>
 
                     {/* Using the grid class from your index.css */}
@@ -24,7 +27,7 @@ export default function Contact() {
                                 <i className="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <div className="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style={{ color: 'var(--accent)' }}>Email</div>
+                                <div className="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style={{ color: 'var(--accent)' }}>{t.contact.email}</div>
                                 <div className="text-[0.88rem] break-all" style={{ color: 'var(--text2)' }}>kovaceduard7@gmail.com</div>
                             </div>
                         </a>
@@ -38,7 +41,7 @@ export default function Contact() {
                                 <i className="fas fa-phone"></i>
                             </div>
                             <div>
-                                <div className="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style={{ color: 'var(--accent)' }}>Phone</div>
+                                <div className="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style={{ color: 'var(--accent)' }}>{t.contact.phone}</div>
                                 <div className="text-[0.88rem]" style={{ color: 'var(--text2)' }}>+36 20 431 1776</div>
                             </div>
                         </a>
@@ -54,7 +57,7 @@ export default function Contact() {
                                 <i className="fab fa-linkedin"></i>
                             </div>
                             <div>
-                                <div className="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style={{ color: 'var(--accent)' }}>LinkedIn</div>
+                                <div className="text-[0.75rem] font-outfit font-bold uppercase tracking-widest mb-0.5" style={{ color: 'var(--accent)' }}>{t.contact.linkedIn}</div>
                                 <div className="text-[0.88rem]" style={{ color: 'var(--text2)' }}>Kovács Eduárd</div>
                             </div>
                         </a>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../language/LanguageContext';
 
 export default function Navbar() {
+    const { lang, toggleLang, t } = useLanguage();
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,14 +50,14 @@ export default function Navbar() {
 
     // 3. Link Class Helper
     const getLinkClass = (id, isMobile = false) => {
-        const base = isMobile 
-            ? "text-2xl font-bold no-underline transition-all duration-300 " 
+        const base = isMobile
+            ? "text-2xl font-bold no-underline transition-all duration-300 "
             : "text-[0.9rem] font-medium transition-all duration-300 no-underline ";
-        
-        const active = activeSection === id 
-            ? "text-[var(--accent)] scale-110" 
+
+        const active = activeSection === id
+            ? "text-[var(--accent)] scale-110"
             : "text-[var(--text2)] hover:text-[var(--accent)]";
-        
+
         return base + active;
     };
 
@@ -73,8 +75,10 @@ export default function Navbar() {
                 <ul className="hidden md:flex gap-9 list-none m-0 p-0">
                     {navLinks.map((item) => (
                         <li key={item}>
-                            <a href={`#${item}`} className={getLinkClass(item)}>
-                                {item.charAt(0).toUpperCase() + item.slice(1)}
+                            <a href={`#${item}`} 
+                            className={getLinkClass(item)}
+                            >
+                                {t.nav[item]}
                             </a>
                         </li>
                     ))}
@@ -85,10 +89,17 @@ export default function Navbar() {
                     <button onClick={toggleTheme} className="border rounded-lg px-3 py-1.5 cursor-pointer transition-all hover:border-[var(--accent)]" style={{ background: 'var(--surface)', borderColor: 'var(--border)', color: 'var(--text2)' }}>
                         {theme === 'dark' ? '🌙' : '☀️'}
                     </button>
-                    
+
+                    <button
+                        onClick={() => toggleLang(lang === 'hu' ? 'en' : 'hu')}
+                        className="px-3 py-1 rounded border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+                    >
+                        {lang === 'hu' ? 'EN' : 'HU'}
+                    </button>
+
                     {/* Hamburger Button */}
-                    <button 
-                        className={`hamburger md:hidden flex flex-col gap-1.5 p-1.5 cursor-pointer ${isMenuOpen ? 'open' : ''}`} 
+                    <button
+                        className={`hamburger md:hidden flex flex-col gap-1.5 p-1.5 cursor-pointer ${isMenuOpen ? 'open' : ''}`}
                         onClick={toggleMenu}
                     >
                         <span className="w-6 h-0.5 bg-[var(--text)] transition-all duration-300"></span>
@@ -100,9 +111,8 @@ export default function Navbar() {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`fixed top-0 left-0 w-full h-screen z-[999] flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out md:hidden ${
-                    isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
-                }`}
+                className={`fixed top-0 left-0 w-full h-screen z-[999] flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out md:hidden ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+                    }`}
                 style={{ background: 'var(--bg)', backdropFilter: 'blur(10px)' }}
             >
                 {navLinks.map((item) => (
@@ -112,7 +122,7 @@ export default function Navbar() {
                         onClick={() => setIsMenuOpen(false)}
                         className={getLinkClass(item, true)}
                     >
-                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                        {t.nav[item]}
                     </a>
                 ))}
             </div>

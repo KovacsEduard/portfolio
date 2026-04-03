@@ -1,6 +1,9 @@
 import ScrollReveal from './ScrollReveal';
+import { useLanguage } from '../language/LanguageContext';
 
 export default function Skills() {
+    const { lang, toggleLang, t } = useLanguage();
+    
     const skills = [
         { name: "Python", icon: "devicon-python-plain" },
         { name: "C#", icon: "devicon-csharp-plain" },
@@ -19,7 +22,7 @@ export default function Skills() {
             <ScrollReveal>
                 <div className="max-w-[1180px] mx-auto px-6">
                     <h2 className="text-3xl md:text-4xl font-outfit font-extrabold mb-12 text-[var(--text)]">
-                        Tech Stack
+                        {t.techstack.title}
                     </h2>
                     
                     <div className="flex flex-wrap gap-3">

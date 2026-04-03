@@ -1,21 +1,24 @@
 import ScrollReveal from "./ScrollReveal";
 import waterImg from '../assets/waterservice.png';
 import schoolImg from '../assets/webalapok.png';
+import { useLanguage } from '../language/LanguageContext';
 
 export default function Projects() {
+    const { lang, toggleLang, t } = useLanguage();
+    
     const projects = [
         {
-            title: "WaterService",
-            desc: "Full-featured business website for WaterService, showcasing company services, work history and contact information.",
+            title: t.projects.waterservice.title,
+            desc: t.projects.waterservice.desc,
             image: waterImg,
-            tag: "Live Project",
+            tag: t.projects.waterservice.tag,
             liveUrl: "https://waterservice.sk/",
         },
         {
-            title: "Gépészeti munkáim",
-            desc: "School projects completed during my studies, used to develop and demonstrate my technical skills.",
+            title: t.projects.gepeszeti.title,
+            desc: t.projects.gepeszeti.desc,
             image: schoolImg,
-            tag: "School Projects",
+            tag: t.projects.gepeszeti.tag,
             liveUrl: "https://sites.google.com/view/webalapok-eduard/projekt-11-szf",
         }
     ];
@@ -25,7 +28,7 @@ export default function Projects() {
             <ScrollReveal>
                 <div className="max-w-[1180px] mx-auto px-6">
                     <h2 className="section-title font-outfit font-extrabold mb-12" style={{ color: 'var(--text)' }}>
-                        Projects
+                        {t.projects.title}
                     </h2>
                     
                     {/* The Grid Container */}
@@ -64,7 +67,7 @@ export default function Projects() {
                                         className="inline-flex items-center gap-2 text-[0.9rem] font-bold no-underline transition-all hover:gap-3"
                                         style={{ color: 'var(--accent)' }}
                                     >
-                                        View Project <i className="fas fa-arrow-right text-xs"></i>
+                                        {t.projects.view} <i className="fas fa-arrow-right text-xs"></i>
                                     </a>
                                 </div>
                             </div>
