@@ -12,9 +12,6 @@ export default function Skills() {
         { name: "Tailwind CSS", icon: "devicon-tailwindcss-original" },
         { name: "SQL", icon: "devicon-azuresqldatabase-plain" },
         { name: "JavaScript", icon: "devicon-javascript-plain" },
-        { name: "Git", icon: "devicon-git-plain" },
-        { name: "Debugging", icon: "devicon-vscode-plain"},
-        { name: "Frontend Dev", icon: "devicon-chrome-plain"},
     ];
 
     return (
