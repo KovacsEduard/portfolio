@@ -22,7 +22,7 @@ export default function About() {
                                 {t.about.p2}
                             </p>
                             <a
-                                href="https://www.canva.com/design/DAGH0oXyWxY/cFSq2AzvlI-cy0NrqIl8ZA/view"
+                                href="{lang === 'hu' ? 'https://canva.link/xny1e72fb00qpho' : 'https://canva.link/1d1jfx663awby9v'}"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="inline-block mt-2 px-[30px] py-[13px] rounded-[10px] font-outfit font-bold text-[0.9rem] no-underline transition-all duration-300 hover:-translate-y-0.5"
