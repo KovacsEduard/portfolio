@@ -35,7 +35,7 @@ export const translations = {
                 tag: "Élő Projekt",
             },
             gepeszeti: {
-                title: "Gépészeti munkáim",
+                title: "Technikumi munkáim",
                 desc: "Iskolai projektek, amelyek során fejlesztettem és bemutathatom technikai készségeimet.",
                 tag: "Iskolai Projekt",
             },
