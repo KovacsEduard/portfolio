@@ -95,7 +95,7 @@ export const translations = {
                 tag: "Live Project",
             },
             gepeszeti: {
-                title: "Gépészeti School Projects",
+                title: "High school projects",
                 desc: "School projects completed during my studies, used to develop and demonstrate my technical skills.",
                 tag: "School Project",
             },
