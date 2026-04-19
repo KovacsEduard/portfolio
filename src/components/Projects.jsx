@@ -1,6 +1,7 @@
 import ScrollReveal from "./ScrollReveal";
 import waterImg from '../assets/waterService.png';
 import schoolImg from '../assets/projektSzf.png';
+import mitsImg from '../assets/mits.png';
 import { useLanguage } from '../language/LanguageContext';
 
 export default function Projects() {
@@ -20,6 +21,13 @@ export default function Projects() {
             image: schoolImg,
             tag: t.projects.gepeszeti.tag,
             liveUrl: "https://sites.google.com/view/webalapok-eduard/projekt-11-szf",
+        },
+        {
+            title: t.projects.mits.title,
+            desc: t.projects.mits.desc,
+            image: mitsImg,
+            tag: t.projects.mits.tag,
+            liveUrl: "https://kovacseduard.github.io/MITS/",
         }
     ];
 

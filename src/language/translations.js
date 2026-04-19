@@ -37,7 +37,12 @@ export const translations = {
             gepeszeti: {
                 title: "Technikumi munkáim",
                 desc: "Iskolai projektek, amelyek során fejlesztettem és bemutathatom technikai készségeimet.",
-                tag: "Iskolai Projekt",
+                tag: "Technikumi Projekt",
+            },
+            mits: {
+                title: "MITS",
+                desc: "A MITS (Marketable IT Skills) projekt keretein belül elkészült többoldalas reszponzív weboldal. A fiktív AI szolgáltatást bemutató felület tisztán HTML5 és CSS3 technológiák használatával, külső keretrendszerek nélkül valósult meg.",
+                tag: "Technikumi Projekt",
             },
             view: "Projekt Megtekintése",
 
@@ -97,7 +102,12 @@ export const translations = {
             gepeszeti: {
                 title: "High school projects",
                 desc: "School projects completed during my studies, used to develop and demonstrate my technical skills.",
-                tag: "School Project",
+                tag: "High school Project",
+            },
+            mits: {
+                title: "MITS",
+                desc: "Developed within the framework of the MITS (Marketable IT Skills) project, this is a multi-page, responsive website. The interface, showcasing a fictional AI service, was built strictly using HTML5 and CSS3 without the use of any external frameworks.",
+                tag: "High school Project",
             },
             view: "View Project",
         },
